@@ -9,13 +9,13 @@
 <body>
 	Login Here
 	<br>
-		<form method="get" action="sellsNewBeer.jsp">
+		<form method="get" action="user_pass_lookup.jsp">
 			<table>
 				<tr>    
-					<td>Username</td><td><input type="text" name="barvalia"></td>
+					<td>Username</td><td><input type="text" name="user"></td>
 				</tr>
 				<tr>
-					<td>Password</td><td><input type="text" name="beer"></td>
+					<td>Password</td><td><input type="text" name="pass"></td>
 				</tr>
 			</table>
 			<input type="submit" value="Login">
