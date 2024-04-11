@@ -38,6 +38,7 @@
 				<%if (result.next()) {
 					out.print("<h1>Login Succesful</h1>");
 					out.print("<a href='userLogin.jsp'>Logout</a>");
+					out.print("\n<a href='showItemList.jsp'>  See Items</a>"); // temporary will turn this into a button later on a different page
 				}
 				else {
 					// if login fails, redirect back to login page
