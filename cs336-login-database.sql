@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS cs336project;
+CREATE DATABASE cs336project;
 use cs336project;
 
 CREATE TABLE Users (id int AUTO_INCREMENT , username varchar(25), password varchar(25), PRIMARY KEY (id));
