@@ -18,7 +18,7 @@
 					<td>Password</td><td><input type="text" name="pass"></td>
 				</tr>
 			</table>
-			<input type="submit" value="Login">
+			<input type="submit" value="Login"> <a href="Register.jsp"> New User? Register Here</a>
 		</form>
 	<br>
 </body>
