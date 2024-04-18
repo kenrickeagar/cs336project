@@ -14,11 +14,11 @@
         
         <table style="margin: 10px auto;">
 		<tr>
-			<td><a href="showItemList.jsp">ItemCategory1</a></td>
+			<td><a href="showShirtList.jsp">Shirts</a></td>
 			<td> </td>
-			<td><a href="showItemList.jsp">ItemCategory2</a></td>
+			<td><a href="showPantsList.jsp">Pants</a></td>
 			<td> </td>
-			<td><a href="showItemList.jsp">ItemCategory3</a></td>
+			<td><a href="showShoeList.jsp">Shoes</a></td>
 			<td> </td>
 			<td><a href="userLogin.jsp">LogOut</a></td>
 		</tr>

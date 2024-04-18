@@ -35,18 +35,17 @@
 		<tr>    
 			<th>Item Name</th>
 			<th>Price</th>
+			<th>Description</th>
 			</tr>
 				<%while(result.next()){
 					%>
 					<tr>
 					<td><%=result.getString(2) %></td>
 					<td><%=result.getString(3) %></td>
-					
+					<td><%=result.getString(4) %></td>
 					
 				<%}%>
 				
-			
-	
 			<%
 			con.close();
 			//close the connection.

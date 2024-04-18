@@ -18,9 +18,11 @@
 			Statement stmt = con.createStatement();
 			
 			//Make a SELECT query from the table specified by the 'command' parameter at the index.jsp
-			String str = "SELECT * FROM " + "Items";
-			//Run the query against the database.
-			ResultSet result = stmt.executeQuery(str);
+			String str = "SELECT * FROM Items WHERE cid = ?";
+			PreparedStatement pstmt = con.prepareStatement(str);
+            pstmt.setString(1, "SHIRTS");
+			ResultSet result = pstmt.executeQuery();
+		
 	
 	%>
 	
