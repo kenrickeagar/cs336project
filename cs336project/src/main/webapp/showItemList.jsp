@@ -10,9 +10,6 @@
 </head>
 <body>
 <%
-	    
-		try {
-	
 			//Get the database connection
 			ApplicationDB db = new ApplicationDB();	
 			Connection con = db.getConnection();		
@@ -24,43 +21,30 @@
 			String str = "SELECT * FROM " + "Items";
 			//Run the query against the database.
 			ResultSet result = stmt.executeQuery(str);
-			
-			//Make an HTML table to show the results in:
-			out.print("<table>");
-
-			//make a row
-			out.print("<tr>");
-			//make a column
-			out.print("<td>");
-			//print out column header
-			out.print("Item name");
-			out.print("</td>");
-			//make a column
-			out.print("<td>");
-			out.print("Prices");
-		
-
-			//parse out the results
-			while (result.next()) {
-				//make a row
-				out.print("<tr>");
-				//make a column
-				out.print("<td>");
-				//Print out current bar or beer name:
-				out.print(result.getString("item_name") + "    ");
-				out.print(result.getString("unit_price"));
-				out.print("</td>");
-				out.print("<td>");
-				
-
-			}
-			out.print("</table>");
-
-			//close the connection.
-			db.closeConnection(con);
-		} catch (Exception e) {
-			out.print(e);
-		}
+	
 	%>
+	
+	<form method = "post" action = "showSelectedItem.jsp">
+	<table border = '1'> 
+	<tr>
+	<th>Item Name</th>
+	<th> Unit Price </th>
+	<th> See Item </th>
+	</tr>
+	<% while(result.next()){
+		%>
+		<tr>
+		<td><%=result.getString(2) %></td>
+		<td><%=result.getString(3) %></td>
+		<td> <button name = "i_id" type = "submit" value= "<%=result.getString(1) %>" >SeeItem</button></td>
+		
+		
+	<%}%>
+	
+	
+	</table>
+
+	</form>
+	
 </body>
 </html>
