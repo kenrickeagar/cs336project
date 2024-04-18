@@ -3,8 +3,8 @@ CREATE DATABASE cs336project;
 use cs336project;
 
 CREATE TABLE Users (id int AUTO_INCREMENT , username varchar(25), password varchar(25), PRIMARY KEY (id));
-CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), PRIMARY KEY (i_id));
 CREATE TABLE Category(cid varchar(20), cname varchar(20), PRIMARY KEY (cid));
+CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), PRIMARY KEY (i_id));
 CREATE TABLE Bids(amount int, time_date datetime, id int, i_id int, primary key(id,i_id), foreign key (id) references users (id), foreign key (i_id) references items (i_id));
 
 
