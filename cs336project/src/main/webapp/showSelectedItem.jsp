@@ -31,18 +31,20 @@
 			%>
 	
 		<!--  Make an HTML table to show the results in: -->
-	<table>
+	<table align = "center" border = '1'>
 		<tr>    
 			<th>Item Name</th>
-			<th>Price</th>
 			<th>Description</th>
+			<th>Size</th>
+			<th>Price</th>
 			</tr>
 				<%while(result.next()){
 					%>
 					<tr>
 					<td><%=result.getString(2) %></td>
-					<td><%=result.getString(3) %></td>
 					<td><%=result.getString(4) %></td>
+					<td><%=result.getString(6) %></td>
+					<td><%=result.getString(3) %></td>
 					
 				<%}%>
 				

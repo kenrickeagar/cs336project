@@ -26,7 +26,7 @@
 	%>
 	
 	<form method = "post" action = "showSelectedItem.jsp">
-	<table border = '1'> 
+	<table align = "center" border = '1'> 
 	<tr>
 	<th>Item Name</th>
 	<th> Unit Price </th>
