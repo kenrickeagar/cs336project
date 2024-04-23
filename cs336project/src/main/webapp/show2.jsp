@@ -43,7 +43,7 @@
 			if (entity.equals("beers"))
 				out.print("manf");
 			else
-				out.print("addr");
+				out.print("name");
 			out.print("</td>");
 			out.print("</tr>");
 

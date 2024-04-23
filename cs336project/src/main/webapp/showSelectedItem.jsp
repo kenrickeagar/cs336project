@@ -37,6 +37,7 @@
 			<th>Description</th>
 			<th>Size</th>
 			<th>Price</th>
+			<th>Action Ends</th>
 			</tr>
 				<%while(result.next()){
 					%>
@@ -45,7 +46,7 @@
 					<td><%=result.getString(4) %></td>
 					<td><%=result.getString(6) %></td>
 					<td><%=result.getString(3) %></td>
-					
+					<td><%=result.getString(7) %></td>
 				<%}%>
 				
 			<%

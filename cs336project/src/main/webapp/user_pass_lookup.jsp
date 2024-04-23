@@ -36,6 +36,8 @@
 		<tr>    
 			<td>
 				<%if (result.next()) {
+					//out.print("<h1>Login Succesful</h1>");
+					//out.print("<a href='userLogin.jsp'>Logout</a>");
 					response.sendRedirect("HomePage.jsp");
 				}
 				else {

@@ -20,6 +20,8 @@
 			<td> </td>
 			<td><a href="showShoeList.jsp">Shoes</a></td>
 			<td> </td>
+			<td><a href="Sell.jsp">Sell</a></td>
+			<td></td>
 			<td><a href="userLogin.jsp">LogOut</a></td>
 		</tr>
 		</table>

@@ -29,7 +29,7 @@
 			<!-- The next lines give HTML for radio buttons being displayed -->
 		  <input type="radio" name="command" value="beers"/>Let's have a beer! Click here to see the beers.
 		  <br>
-		  <input type="radio" name="command" value="bars"/>Let's go to a bar! Click here to see the bars.
+		  <input type="radio" name="command" value="user"/>Let's go to a bar! Click here to see the bars.
 		    <!-- when the radio for bars is chosen, then 'command' will have value 
 		     | 'bars', in the show.jsp file, when you access request.parameters -->
 		  <br>
