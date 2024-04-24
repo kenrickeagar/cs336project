@@ -36,6 +36,8 @@ INSERT INTO Users (username, password) VALUES ('user', '12345');
 INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 1, 14 ,NOW());
 INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 1,16 ,NOW());
 INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 1,17 ,NOW());
+UPDATE Items SET amount = 17 WHERE i_id = 1;
+
 
 SELECT * FROM Users;
 SELECT * FROM Items;
