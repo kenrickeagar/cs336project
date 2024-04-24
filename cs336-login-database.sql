@@ -6,7 +6,7 @@ CREATE TABLE Users (id int AUTO_INCREMENT , username varchar(25), password varch
 CREATE TABLE Category(cid varchar(20), cname varchar(20), PRIMARY KEY (cid));
 CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime, PRIMARY KEY (i_id));
 CREATE TABLE Bids(amount int, closing_date datetime, time_of_bid datetime, buyer_id int, seller_id int, i_id int, foreign key (buyer_id) references users (id),foreign key (seller_id) references users (id), foreign key (i_id) references items (i_id));
-
+CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
 
 INSERT INTO Category(cid, cname) VALUES ('PANTS', 'PANTS'); 
 INSERT INTO Category(cid,cname) VALUES ('SHIRTS', 'SHIRTS');
@@ -38,6 +38,10 @@ INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 1,16 ,NOW());
 INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 1,17 ,NOW());
 UPDATE Items SET unit_price = 17 WHERE i_id = 1;
 
+#Default filler questions
+INSERT INTO Questions(question,answer, id) VALUES ('How do I bid for Items?', 'Go to a selected item and click bid', 1);
+INSERT INTO Questions(question,answer, id) VALUES ('How many items can I bid for?', 'no limit on items you can bid for', 2);
+INSERT INTO Questions(question,answer, id) VALUES ('Is the sky blue?', 'possibly', 3);
 
 SELECT * FROM Users;
 SELECT * FROM Items;
