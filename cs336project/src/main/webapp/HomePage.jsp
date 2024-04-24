@@ -25,6 +25,13 @@
 			<td><a href="userLogin.jsp">LogOut</a></td>
 		</tr>
 		</table>
+		
+		 <table style="margin: 10px auto;">
+		<tr>
+			<td><a href="askQuestion.jsp">Ask A Question</a></td>
+			<td><a href="listQuestions.jsp">See All QNA's</a></td>
+		</tr>
+		</table>
 </div>
 
 

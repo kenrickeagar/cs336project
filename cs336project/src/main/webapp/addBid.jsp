@@ -24,6 +24,9 @@
 			String bidAmount = request.getParameter("bid_amount");
 			String itemID = (String) session.getAttribute("itemID");
 			String user_name = (String) session.getAttribute("username");
+			if(user_name == null){
+					response.sendRedirect("userLogin.jsp");
+			}
 			String idQuery = "SELECT id from Users WHERE username = ?";
 			PreparedStatement pstmt = con.prepareStatement(idQuery);
 			pstmt.setString(1, user_name);

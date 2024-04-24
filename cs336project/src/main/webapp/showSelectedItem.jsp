@@ -86,14 +86,16 @@
 	
 	</table>
 	
+	<h1 align = "center"> Make A Bid For This Item</h1>
+	
 	<form method="post" action="addBid.jsp">
-			<table>
+			<table align = "center">
 				<tr>    
 					<td>Bid Amount</td><td><input type="text" name="bid_amount"></td>
 				</tr>
 			</table>
-			<input type="submit" value="Make Bid">
-		</form>			
+		<center><input type="submit" value="Make Bid"></center>
+		</form>		
 			
 		
 
