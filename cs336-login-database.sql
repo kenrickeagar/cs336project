@@ -32,5 +32,10 @@ INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
 INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
 INSERT INTO Users (username, password) VALUES ('user', '12345');
 
+#Check Shirts and click black jersey to see bid table example
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 1, 14 ,NOW());
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 1,16 ,NOW());
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 1,17 ,NOW());
+
 SELECT * FROM Users;
 SELECT * FROM Items;
