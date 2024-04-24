@@ -20,7 +20,7 @@
 			Statement stmt = con.createStatement();
 			
 			String itemID = request.getParameter("i_id");
-		
+			session.setAttribute("itemID", itemID);
 		
 			
             String query = "SELECT * FROM Items WHERE i_id = ?";
@@ -84,7 +84,16 @@
 			%>
 	
 	
-	</table>			
+	</table>
+	
+	<form method="post" action="addBid.jsp">
+			<table>
+				<tr>    
+					<td>Bid Amount</td><td><input type="text" name="bid_amount"></td>
+				</tr>
+			</table>
+			<input type="submit" value="Make Bid">
+		</form>			
 			
 		
 
