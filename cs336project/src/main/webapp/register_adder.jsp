@@ -29,6 +29,7 @@
             pstmt.setString(1, username);
             pstmt.setString(2, password);
 			pstmt.executeUpdate();
+			session.setAttribute("username", username);
 			response.sendRedirect("HomePage.jsp");
 			
 			%>
