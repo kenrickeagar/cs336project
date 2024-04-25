@@ -4,8 +4,8 @@ use cs336project;
 
 CREATE TABLE Users (id int AUTO_INCREMENT , username varchar(25), password varchar(25), PRIMARY KEY (id));
 CREATE TABLE Category(cid varchar(20), cname varchar(20), PRIMARY KEY (cid));
-CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime, PRIMARY KEY (i_id));
-CREATE TABLE Bids(amount int, closing_date datetime, time_of_bid datetime, buyer_id int, seller_id int, i_id int, foreign key (buyer_id) references users (id),foreign key (seller_id) references users (id), foreign key (i_id) references items (i_id));
+CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, min_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime, PRIMARY KEY (i_id));
+CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, seller_id int, i_id int,open_close boolean, winner_loser boolean, foreign key (buyer_id) references users (id),foreign key (seller_id) references users (id), foreign key (i_id) references items (i_id));
 CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
 
 INSERT INTO Category(cid, cname) VALUES ('PANTS', 'PANTS'); 
