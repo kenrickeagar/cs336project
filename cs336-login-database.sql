@@ -8,6 +8,11 @@ CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price f
 CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, i_id int,open_close boolean, winner_loser boolean, foreign key (buyer_id) references users (id), foreign key (i_id) references items (i_id));
 CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
 
+INSERT INTO Users (username, password) VALUES ('zach', 'password123');
+INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
+INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
+INSERT INTO Users (username, password) VALUES ('user', '12345');
+
 INSERT INTO Category(cid, cname) VALUES ('PANTS', 'PANTS'); 
 INSERT INTO Category(cid,cname) VALUES ('SHIRTS', 'SHIRTS');
 INSERT INTO Category(cid,cname) VALUES ('SHOES', 'SHOES');
@@ -26,11 +31,6 @@ INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, clos
 INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Air Force 1s', 50.00, 'creased','SHOES', '7', '2024-06-23 12:34:56',1);
 INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Jordans', 30.00, 'really good','SHOES', '9', '2024-06-23 12:34:56',2);
 INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('retro 5s', 70.00, 'creased','SHOES', '10', '2024-06-23 12:34:56',3);
-
-INSERT INTO Users (username, password) VALUES ('zach', 'password123');
-INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
-INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
-INSERT INTO Users (username, password) VALUES ('user', '12345');
 
 #Check Shirts and click black jersey to see bid table example
 INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 1, 14 ,NOW());
