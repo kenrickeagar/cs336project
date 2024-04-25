@@ -16,6 +16,10 @@
 					<td><input type="text" name="item_name"></td>
 				</tr>
 				<tr>
+					<td>Starting Price</td>
+					<td><input type="text" name="unit_price"></td>
+				</tr>
+				<tr>
 					<td>Minimum Price</td>
 					<td><input type="text" name="min_price"></td>
 				</tr>

@@ -21,13 +21,14 @@
 			
 			String item_name = request.getParameter("item_name");
 			String min_price = request.getParameter("min_price");
+			String start_price = request.getParameter("unit_price");
 			String description = request.getParameter("description");
 			String category = request.getParameter("category");
 			String cat_attribute = request.getParameter("cat_attribute");
 			String auction_end = request.getParameter("closing_date_time");
 		
 			
-            String query = "INSERT INTO Items (item_name, unit_price, description, cid, subcatAttribute, closing_date_time) VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO Items (item_name, min_price, description, cid, subcatAttribute, closing_date_time,unit_price ) VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, request.getParameter("item_name"));
             pstmt.setString(2, request.getParameter("min_price"));
@@ -35,6 +36,7 @@
             pstmt.setString(4, request.getParameter("category"));
             pstmt.setString(5, request.getParameter("cat_attribute"));
             pstmt.setString(6, request.getParameter("closing_date_time"));
+            pstmt.setString(7, request.getParameter("unit_price"));
             int rowsAffected = pstmt.executeUpdate();
 
             if (rowsAffected > 0) {

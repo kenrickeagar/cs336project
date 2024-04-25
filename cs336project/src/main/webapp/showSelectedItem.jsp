@@ -45,17 +45,17 @@
 			<th>Item Name</th>
 			<th>Description</th>
 			<th>Size</th>
-			<th>Price</th>
+			<th>Current Price</th>
 			<th>Auction Ends</th>
 			</tr>
 				<%while(result.next()){
 					%>
 					<tr>
 					<td><%=result.getString(2) %></td>
-					<td><%=result.getString(4) %></td>
-					<td><%=result.getString(6) %></td>
-					<td><%=result.getString(3) %></td>
+					<td><%=result.getString(5) %></td>
 					<td><%=result.getString(7) %></td>
+					<td><%=result.getString(3) %></td>
+					<td><%=result.getString(8) %></td>
 				<%}%>
 	</table>
 

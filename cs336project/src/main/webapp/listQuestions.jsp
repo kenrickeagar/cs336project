@@ -44,7 +44,15 @@
 					<tr>
 					<td><%=result.getString(1) %></td>
 					<td><%=result.getString(2) %></td>
+					
+					<%if(result.getString(3) == null || result.getString(3).isEmpty()){
+						%>
+						<td><%="Not Answered Yet" %></td>
+					<% }else{
+					%>
 					<td><%=result.getString(3) %></td>
+					<%} %>
+					
 				<%}%>
 				
 				<%
