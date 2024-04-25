@@ -13,19 +13,19 @@ INSERT INTO Category(cid,cname) VALUES ('SHIRTS', 'SHIRTS');
 INSERT INTO Category(cid,cname) VALUES ('SHOES', 'SHOES');
 
 #default shirts - shirt subcatAttribute is like small medium large xl etc
-INSERT INTO Items (item_name, unit_price, description, cid, subcatAttribute, closing_date_time) VALUES ('Black Jersey', 12.00, 'lightly used', 'SHIRTS', 'small', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Green Jersey', 6.00, 'very green very good', 'SHIRTS', 'small', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Red Jersey', 7.00, 'super red', 'SHIRTS', 'small', '2024-06-23 12:34:56');
+INSERT INTO Items (item_name, unit_price, description, cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Black Jersey', 12.00, 'lightly used', 'SHIRTS', 'small', '2024-06-23 12:34:56',1);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Green Jersey', 6.00, 'very green very good', 'SHIRTS', 'small', '2024-06-23 12:34:56',2);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Red Jersey', 7.00, 'super red', 'SHIRTS', 'small', '2024-06-23 12:34:56',3);
 
 #default pants - pants subcatAttribute is waist size so 28 32 34 etc
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Shorts', 10.00, 'comfortable', 'PANTS', '28', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Ripped Jeans', 20.00, 'good condition', 'PANTS', '34', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Dress Pants', 10.00, 'fancy', 'PANTS', '32', '2024-06-23 12:34:56');
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Shorts', 10.00, 'comfortable', 'PANTS', '28', '2024-06-23 12:34:56',1);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Ripped Jeans', 20.00, 'good condition', 'PANTS', '34', '2024-06-23 12:34:56',2);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Dress Pants', 10.00, 'fancy', 'PANTS', '32', '2024-06-23 12:34:56',3);
 
 #default shoes - subcatAttribute is like shoe sizes so 7, 8.5, etc
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Air Force 1s', 50.00, 'creased','SHOES', '7', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('Jordans', 30.00, 'really good','SHOES', '9', '2024-06-23 12:34:56');
-INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time) VALUES ('retro 5s', 70.00, 'creased','SHOES', '10', '2024-06-23 12:34:56');
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Air Force 1s', 50.00, 'creased','SHOES', '7', '2024-06-23 12:34:56',1);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('Jordans', 30.00, 'really good','SHOES', '9', '2024-06-23 12:34:56',2);
+INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id) VALUES ('retro 5s', 70.00, 'creased','SHOES', '10', '2024-06-23 12:34:56',3);
 
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
 INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
