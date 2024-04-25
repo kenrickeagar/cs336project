@@ -26,9 +26,18 @@
 			String category = request.getParameter("category");
 			String cat_attribute = request.getParameter("cat_attribute");
 			String auction_end = request.getParameter("closing_date_time");
-		
 			
-            String query = "INSERT INTO Items (item_name, min_price, description, cid, subcatAttribute, closing_date_time,unit_price ) VALUES (?, ?, ?, ?, ?, ?, ?);";
+			//Get the id from current username
+			String currUser = (String)session.getAttribute("username");
+			String q2 = "SELECT id FROM Users WHERE username = ?";
+			PreparedStatement pstmt2 = con.prepareStatement(q2);
+			pstmt2.setString(1, currUser);
+			ResultSet r2 = pstmt2.executeQuery();
+			r2.next();
+			
+			
+			
+            String query = "INSERT INTO Items (item_name, min_price, description, cid, subcatAttribute, closing_date_time,unit_price,seller_id) VALUES (?, ?, ?, ?, ?, ?, ?,?);";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, request.getParameter("item_name"));
             pstmt.setString(2, request.getParameter("min_price"));
@@ -37,6 +46,7 @@
             pstmt.setString(5, request.getParameter("cat_attribute"));
             pstmt.setString(6, request.getParameter("closing_date_time"));
             pstmt.setString(7, request.getParameter("unit_price"));
+            pstmt.setString(8, r2.getString(1));
             int rowsAffected = pstmt.executeUpdate();
 
             if (rowsAffected > 0) {

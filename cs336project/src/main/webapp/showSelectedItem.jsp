@@ -35,6 +35,13 @@
 		
 			ResultSet result2 = pstmt2.executeQuery();
 			
+			String query3 = "SELECT username FROM Users JOIN Items ON seller_id = id WHERE i_id = ?";
+			PreparedStatement prep3 = con.prepareStatement(query3);
+			prep3.setString(1, itemID);
+			
+			ResultSet result3 = prep3.executeQuery();
+			result3.next();
+			
 			%>
 	
 		<!--  Make an HTML table to show the results in: -->
@@ -47,6 +54,7 @@
 			<th>Size</th>
 			<th>Current Price</th>
 			<th>Auction Ends</th>
+			<th>Seller</th>
 			</tr>
 				<%while(result.next()){
 					%>
@@ -56,6 +64,8 @@
 					<td><%=result.getString(7) %></td>
 					<td><%=result.getString(3) %></td>
 					<td><%=result.getString(8) %></td>
+					<td><%=result3.getString(1) %></td>
+					
 				<%}%>
 	</table>
 
@@ -77,11 +87,7 @@
 					<td><%=result2.getString(3) %></td>
 				<%}%>
 	
-	<%
-			con.close();
-			//close the connection.
-			db.closeConnection(con);
-			%>
+	
 	
 	
 	</table>
@@ -95,6 +101,12 @@
 				</tr>
 			</table>
 		<center><input type="submit" value="Make Bid"></center>
+		
+		<%
+			con.close();
+			//close the connection.
+			db.closeConnection(con);
+			%>
 		</form>		
 			
 		
