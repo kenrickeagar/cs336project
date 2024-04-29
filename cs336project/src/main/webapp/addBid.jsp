@@ -34,11 +34,19 @@
 			result.next();
 			String buyID = result.getString(1);
 			
+			String checkQuery = "SELECT unit_price from Items WHERE i_id = ?";
+			PreparedStatement pCheck = con.prepareStatement(checkQuery);
+			pCheck.setString(1, itemID);
+			ResultSet rCheck = pCheck.executeQuery();
+			rCheck.next();
+			Double checkMe = Double.parseDouble(rCheck.getString(1));
 			
-			
-			
-	
-			
+			if(Double.parseDouble(bidAmount) < checkMe){
+				out.print("<h1>Error: Bid Must Be Higher Than Current Price</h1>");
+	            out.print("<a href='HomePage.jsp'>Go Back Home</a>");
+			}
+
+			else{
             String query = "UPDATE Items SET unit_price = ? WHERE i_id = ?";
             PreparedStatement pstmt2 = con.prepareStatement(query);
             pstmt2.setString(1, bidAmount);
@@ -57,6 +65,7 @@
             p3.executeUpdate();
             out.print("<h1>Bid Succesfully Placed</h1>");
             out.print("<a href='HomePage.jsp'>Go Back Home</a>");
+			}
 			%>
 	
 		<!--  Make an HTML table to show the results in: -->
