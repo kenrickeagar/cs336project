@@ -23,10 +23,7 @@
 			session.setAttribute("itemID", itemID);
 		
 			
-            String query = "SELECT * FROM Items WHERE i_id = ?";
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.setString(1, itemID);
-			ResultSet result = pstmt.executeQuery(); //iid query info
+           
 			
 			//This big chunck is for the autoBid feature everything here currently works
 			String autoQuery = "SELECT amount, increment,prev_price,id,i_id,unit_price FROM Items JOIN Auto_Bids USING (i_id) WHERE i_id = ?";
@@ -68,7 +65,11 @@
 			} //end of autobid feature
 			
 
-			
+			 String query = "SELECT * FROM Items WHERE i_id = ?";
+	            PreparedStatement pstmt = con.prepareStatement(query);
+	            pstmt.setString(1, itemID);
+				ResultSet result = pstmt.executeQuery(); //iid query info
+				
 			String query2 = "SELECT username,amount,time_of_bid FROM Bids JOIN Users ON buyer_id = id WHERE i_id = ?";
 			PreparedStatement pstmt2 = con.prepareStatement(query2);
 			pstmt2.setString(1, itemID);
