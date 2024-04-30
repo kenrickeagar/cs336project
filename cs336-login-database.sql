@@ -8,7 +8,7 @@ CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price f
 CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, i_id int, foreign key (buyer_id) references users (id), foreign key (i_id) references items (i_id));
 CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
 CREATE TABLE Auto_Bids(id int, i_id int, prev_price float, amount float, increment float, foreign key (id) references Users (id),foreign key (i_id) references Items (i_id));
-CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_name varchar(25), foreign key (id) references users (id), primary key (alert_id));
+CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_decription varchar(25), foreign key (id) references users (id), primary key (alert_id));
 
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
 INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
