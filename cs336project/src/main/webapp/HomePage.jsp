@@ -31,6 +31,7 @@
 			<td><a href="askQuestion.jsp">Ask A Question</a></td>
 			<td><a href="listQuestions.jsp">See All QNA's</a></td>
 			<td><a href="viewAlerts.jsp">My Alerts</a></td>
+			<td><a href="enterAlert.jsp">Set Item Alert</a></td>
 		</tr>
 		</table>
 </div>

@@ -50,7 +50,11 @@
 			pstmt3.setString(1, currentID);
 			ResultSet result3 = pstmt3.executeQuery();
 			
-			
+			//Alert if somebody set an alert for an item to become avilible
+			String query4 = "SELECT i_id, item_name,cid from items join item_alert on item_name like concat('%',item_description,'%') where id = ?";
+			PreparedStatement pstmt4 = con.prepareStatement(query4);
+			pstmt4.setString(1, currentID);
+			ResultSet result4 = pstmt4.executeQuery();		
 			%>
 	
 	<table align="center" border = '1'>
@@ -78,6 +82,16 @@
 			<tr>
 				<td>
 					<p> ALERT SOMEBODY PLACED A HIGHER THEN THE LIMIT ON YOUR AUTO BID FOR:<%=result3.getString(2)%></p>
+		
+	<%} %>
+	</table>
+	
+	<table align="center" border = '1'>
+	
+		<%while(result4.next()){ %>
+			<tr>
+				<td>
+					<p> ALERT ITEM :<%=result4.getString(2)%> IS NOW AVAILABLE</p>
 		
 	<%} %>
 	</table>
