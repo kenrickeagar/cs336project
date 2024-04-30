@@ -90,8 +90,9 @@
 				isOpen = false; 
 			}
 			
-			String getWinnerQuery = "SELECT buyer_id,username, amount from bids join users on buyer_id = id where amount = (select max(amount) from bids)";
+			String getWinnerQuery = "SELECT buyer_id,username, amount from bids join users on buyer_id = id where amount = (select max(amount) from bids where i_id = ?)";
 			 PreparedStatement wpstmt = con.prepareStatement(getWinnerQuery);
+			 wpstmt.setString(1, itemID);
 			ResultSet winnerResult = wpstmt.executeQuery(); //winner query info has buyer id and highest bid amount
 			winnerResult.next(); //results from query
 			%>
