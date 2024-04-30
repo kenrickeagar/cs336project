@@ -27,8 +27,8 @@
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, itemID);
 			ResultSet result = pstmt.executeQuery(); //iid query info
-		
 			
+			//This big chunck is for the autoBid feature everything here currently works
 			String autoQuery = "SELECT amount, increment,prev_price,id,i_id,unit_price FROM Items JOIN Auto_Bids USING (i_id) WHERE i_id = ?";
 			PreparedStatement prepAuto = con.prepareStatement(autoQuery);
 			prepAuto.setString(1, itemID);
@@ -65,7 +65,7 @@
 						upBid.executeUpdate();
 					}
 				}
-			}
+			} //end of autobid feature
 			
 
 			
@@ -82,10 +82,27 @@
 			ResultSet result3 = prep3.executeQuery();
 			result3.next();
 			
+			
+			result.next();
+			DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			boolean isOpen = true; //will represent if auction is open or not
+			if(Timestamp.valueOf(LocalDateTime.now().format(formatter1)).after(Timestamp.valueOf(result.getString(8)))){
+				isOpen = false; 
+			}
+			
+			String getWinnerQuery = "SELECT buyer_id,username, amount from bids join users on buyer_id = id where amount = (select max(amount) from bids)";
+			 PreparedStatement wpstmt = con.prepareStatement(getWinnerQuery);
+			ResultSet winnerResult = wpstmt.executeQuery(); //winner query info has buyer id and highest bid amount
+			winnerResult.next(); //results from query
 			%>
-	
+			
 		<!--  Make an HTML table to show the results in: -->
+	<%if(!isOpen){ //if the auction is NOT open display the correct title
+		%>
+		<h1 align = "center"> Item Info: AUCTION CLOSED</h1>
+		<% } else{%>
 	<h1 align = "center"> Item Info</h1>	
+	<% } %>
 		
 	<table align = "center" border = '1'>
 		<tr>    
@@ -96,8 +113,7 @@
 			<th>Auction Ends</th>
 			<th>Seller</th>
 			</tr>
-				<%while(result.next()){
-					%>
+				
 					<tr>
 					<td><%=result.getString(2) %></td>
 					<td><%=result.getString(5) %></td>
@@ -106,11 +122,11 @@
 					<td><%=result.getString(8) %></td>
 					<td><%=result3.getString(1) %></td>
 					
-				<%}%>
+				
 	</table>
 
 	
-	<h1 align = "center"> Current Bids For This Item</h1>
+	<h1 align = "center">Bids For This Item</h1>
 	
 	<table align = "center" border = '1'>
 	
@@ -119,7 +135,7 @@
 			<th>Amount</th>
 			<th>Time Bid Placed</th>
 			</tr>
-				<%while(result2.next()){
+				<%while(result2.next()){ //Go through the cols of the item query
 					%>
 					<tr>
 					<td><%=result2.getString(1) %></td>
@@ -128,9 +144,42 @@
 				<%}%>
 	
 	
-	
-	
 	</table>
+	
+	
+	<%if(!isOpen){ // if the auction is not open display the winner information%>
+	
+	<%if(Double.parseDouble(winnerResult.getString(3)) < Double.parseDouble(result.getString(4))){%>
+	<h1 align = "center">NO AUCTION WINNER MIN PRICE NOT SATISFIED</h1>
+	
+	<%} else {%>
+		<h1 align = "center">AUCTION WINNER</h1>
+		
+		<table align = "center" border = '1'>
+		<tr>    
+			<th>User</th>
+			<th>Winning Amount</th>
+			
+			<tr>
+					<td><%=winnerResult.getString(2) %></td>
+					<td><%=winnerResult.getString(3) %></td>
+					
+		</tr>
+		
+		
+		</table>
+		<% String updateItemWinnerQuery = "UPDATE Items SET winner_id = ? WHERE i_id = ? "; // update the winner of the item
+		PreparedStatement upItemWinner = con.prepareStatement(updateItemWinnerQuery);
+		upItemWinner.setString(1, winnerResult.getString(1));
+		upItemWinner.setString(2, itemID);
+		upItemWinner.executeUpdate();
+		
+		%>
+	<%}
+	
+	} else{//if auction IS STILL open display the regular item info%>
+	
+	
 	
 	<h1 align = "center"> Make A Bid For This Item</h1>
 	
@@ -142,11 +191,7 @@
 			</table>
 		<center><input type="submit" value="Make Bid"></center>
 		
-		<%
-			con.close();
-			//close the connection.
-			db.closeConnection(con);
-			%>
+	
 			
 		</form>	
 		
@@ -160,13 +205,31 @@
 				<tr> </tr>
 			</table>
 		<center><input type="submit" value="Make Automatic Bid"></center>
+		</form>
+	<%} // end of item info you can input other table below this%>	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		<%
 			con.close();
 			//close the connection.
 			db.closeConnection(con);
 			%>
-		</form>				
+						
 		
 
 		<%} catch (Exception e) {
