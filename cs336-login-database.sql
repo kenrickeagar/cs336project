@@ -4,8 +4,8 @@ use cs336project;
 
 CREATE TABLE Users (id int AUTO_INCREMENT , username varchar(25), password varchar(25), PRIMARY KEY (id));
 CREATE TABLE Category(cid varchar(20), cname varchar(20), PRIMARY KEY (cid));
-CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, min_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime,seller_id int, foreign key(seller_id) references Users (id), PRIMARY KEY (i_id));
-CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, i_id int,open_close boolean, winner_loser boolean, foreign key (buyer_id) references users (id), foreign key (i_id) references items (i_id));
+CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, min_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime,seller_id int,winner_id int, foreign key(seller_id) references Users (id),foreign key(winner_id) references Users (id), PRIMARY KEY (i_id));
+CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, i_id int, foreign key (buyer_id) references users (id), foreign key (i_id) references items (i_id));
 CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
 CREATE TABLE Auto_Bids(id int, i_id int, prev_price float, amount float, increment float, foreign key (id) references Users (id),foreign key (i_id) references Items (i_id));
 
