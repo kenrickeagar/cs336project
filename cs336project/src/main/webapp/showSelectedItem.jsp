@@ -96,6 +96,13 @@
 			 wpstmt.setString(1, itemID);
 			ResultSet winnerResult = wpstmt.executeQuery(); //winner query info has buyer id and highest bid amount
 			winnerResult.next(); //results from query
+			
+			
+			String similarQuery = "SELECT item_name, description, subcatAttribute,unit_price FROM items WHERE cid = ? AND subcatAttribute = ?";
+			PreparedStatement spstmt = con.prepareStatement(similarQuery);
+			 spstmt.setString(1, result.getString(6));
+			 spstmt.setString(2, result.getString(7));
+			 ResultSet similarResult = spstmt.executeQuery();
 			%>
 			
 		<!--  Make an HTML table to show the results in: -->
@@ -210,8 +217,25 @@
 		</form>
 	<%} // end of item info you can input other table below this%>	
 		
-		
-		
+	<h1 align = "center">Similar Items</h1>	
+		<table align = "center" border = '1'>
+	<tr>    
+			<th>Item Name</th>
+			<th>Description</th>
+			<th>Size</th>
+			<th>Price</th>
+			</tr>
+				<%while(similarResult.next()){ //Go through the cols of the item query
+					%>
+					<tr>
+					<td><%=similarResult.getString(1) %></td>
+					<td><%=similarResult.getString(2) %></td>
+					<td><%=similarResult.getString(3) %></td>
+					<td><%=similarResult.getString(4) %></td>
+				<%}%>
+	
+	
+	</table>
 		
 		
 		
