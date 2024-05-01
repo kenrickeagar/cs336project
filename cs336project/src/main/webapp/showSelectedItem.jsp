@@ -98,10 +98,11 @@
 			winnerResult.next(); //results from query
 			
 			
-			String similarQuery = "SELECT item_name, description, subcatAttribute,unit_price FROM items WHERE cid = ? AND subcatAttribute = ?";
+			String similarQuery = "SELECT item_name, description, subcatAttribute,unit_price FROM items WHERE cid = ? AND subcatAttribute = ? AND i_id <> ?";
 			PreparedStatement spstmt = con.prepareStatement(similarQuery);
 			 spstmt.setString(1, result.getString(6));
 			 spstmt.setString(2, result.getString(7));
+			 spstmt.setString(3, result.getString(1));
 			 ResultSet similarResult = spstmt.executeQuery();
 			%>
 			
