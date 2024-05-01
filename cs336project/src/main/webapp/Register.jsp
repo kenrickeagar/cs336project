@@ -7,10 +7,10 @@
 <title>Registration Page</title>
 </head>
 <body>
-Register Here
+<h1 align = 'center'>Register Here</h1>
 	<br>
 		<form method="post" action="register_adder.jsp">
-			<table>
+			<table align = 'center'>
 				<tr>    
 					<td>Username</td><td><input type="text" name="user"></td>
 				</tr>
@@ -18,7 +18,7 @@ Register Here
 					<td>Password</td><td><input type="text" name="pass"></td>
 				</tr>
 			</table>
-			<input type="submit" value="Register"> 
+			<center><input type="submit" value="Register"> <a href="userLogin.jsp"> User Login</a></center>
 		</form>
 	<br>
 </body>

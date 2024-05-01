@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Login Here
+	<h1 align = 'center'>User Login</h1>
 	<br>
 		<form method="get" action="user_pass_lookup.jsp">
-			<table>
+			<table align = 'center'>
 				<tr>    
 					<td>Username</td><td><input type="text" name="user"></td>
 				</tr>
@@ -18,7 +18,10 @@
 					<td>Password</td><td><input type="text" name="pass"></td>
 				</tr>
 			</table>
-			<input type="submit" value="Login"> <td><a href="Register.jsp"> Register Here</a></td>
+			<center><input type="submit" value="Login"> <td><a href="Register.jsp"> Register Here</a></td></center>
+			
+			<center><a  href="adminLogin.jsp"> Admin Login Here</a></center>
+			<center><a href="customerRepLogin.jsp"> Customer Rep Login Here</a></center>
 		</form>
 	<br>
 </body>
