@@ -18,5 +18,17 @@
 		<center><input type="submit" value="Ask"></center>
 		</form>
 	<br>
+	
+	<h1 align = "center"> Or Search Existing Question!</h1>
+	<br>
+		<form method="post" action="searchQuestion.jsp">
+			<table align = "center">
+				<tr>    
+					<td>Enter Question</td><td><input type="text"  name="search_question"></td>
+				</tr>
+			</table>
+		<center><input type="submit" value="Search"></center>
+		</form>
+	<br>
 </body>
 </html>
