@@ -10,6 +10,7 @@ CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, forei
 CREATE TABLE Auto_Bids(id int, i_id int, prev_price float, amount float, increment float, foreign key (id) references Users (id),foreign key (i_id) references Items (i_id));
 CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_decription varchar(25), foreign key (id) references users (id), primary key (alert_id));
 
+INSERT INTO users (username, password) VALUES ('admin', 'pass');
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
 INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
 INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
