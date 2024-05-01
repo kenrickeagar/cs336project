@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Alert - BuyMe</title>
 </head>
 <body>
 <a href="HomePage.jsp">Go Back Home </a>
