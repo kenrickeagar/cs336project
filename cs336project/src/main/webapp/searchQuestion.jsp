@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="HomePage.jsp">Go Back Home </a>
 <%
 	
 		try {
@@ -20,50 +19,43 @@
 			//Create a SQL statement
 			Statement stmt = con.createStatement();
 			
-			String itemID = request.getParameter("i_id");
-			session.setAttribute("itemID", itemID);
-		
+			String user = (String)session.getAttribute("username");
+			if(user == null){
+				response.sendRedirect("userLogin.jsp");
+			}
+
 			
-            String query = "SELECT username, question, answer FROM Questions JOIN Users USING (id)";
+            String query = "SELECT * FROM Questions WHERE question LIKE CONCAT('%',?,'%') ";
             PreparedStatement pstmt = con.prepareStatement(query);
+            pstmt.setString(1, request.getParameter("search_question"));
 			ResultSet result = pstmt.executeQuery();
-		
 			
+
 			%>
 	
 		<!--  Make an HTML table to show the results in: -->
-	<h1 align = "center"> Item Info</h1>	
-		
-	<table align = "center" border = '1'>
+			<table align = "center" border = '1'>
 		<tr>    
-			<th>Username</th>
 			<th>Question</th>
 			<th>Answer</th>
 			</tr>
-				<%while(result.next()){
-					%>
+				<%while(result.next()){ %>
 					<tr>
 					<td><%=result.getString(1) %></td>
 					<td><%=result.getString(2) %></td>
-					
-					<%if(result.getString(3) == null || result.getString(3).isEmpty()){
-						%>
-						<td><%="Not Answered Yet" %></td>
-					<% }else{
-					%>
-					<td><%=result.getString(3) %></td>
-					<%} %>
-					
-				<%}%>
+			
+				<%} %>	
 				
-				<%
+	</table>
+			<%
 			con.close();
 			//close the connection.
 			db.closeConnection(con);
 			%>
-	</table>
-	
-	<%} catch (Exception e) {
+		
+
+			
+		<%} catch (Exception e) {
 			out.print(e);
 		}%>
 </body>

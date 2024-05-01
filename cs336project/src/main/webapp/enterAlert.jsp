@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="HomePage.jsp">Go Back Home </a>
 <h1 align = "center"> Enter An Item Name To Be Alerted When Its Available!</h1>
 	<br>
 		<form method="post" action="addAlert.jsp">

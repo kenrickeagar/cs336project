@@ -9,6 +9,7 @@
 <title>View Alerts</title>
 </head>
 <body>
+<a href="HomePage.jsp">Go Back Home </a>
 <%
 	
 		try {

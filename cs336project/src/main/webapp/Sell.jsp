@@ -7,7 +7,9 @@
 <title>Sell</title>
 </head>
 <body>
-	Sell Item
+
+<a href="HomePage.jsp">Go Back Home </a>
+<h1> Sell Item</h1>
 	<br>
 		<form method="post" action="add_item.jsp">
 			<table>

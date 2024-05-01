@@ -7,6 +7,7 @@
 <title>Ask Question</title>
 </head>
 <body>
+<a href="HomePage.jsp">Go Back Home </a>
 	<h1 align = "center"> Ask a Question !</h1>
 	<br>
 		<form method="post" action="postQuestion.jsp">
