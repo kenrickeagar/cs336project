@@ -7,10 +7,12 @@ CREATE TABLE Category(cid varchar(20), cname varchar(20), PRIMARY KEY (cid));
 CREATE TABLE Items (i_id int AUTO_INCREMENT, item_name varchar(25), unit_price float, min_price float, description varchar(100), cid varchar(20), foreign key (cid) references Category (cid), subcatAttribute varchar(20), closing_date_time datetime,seller_id int,winner_id int, foreign key(seller_id) references Users (id),foreign key(winner_id) references Users (id), PRIMARY KEY (i_id));
 CREATE TABLE Bids(amount int, time_of_bid datetime, buyer_id int, i_id int, foreign key (buyer_id) references users (id), foreign key (i_id) references items (i_id));
 CREATE TABLE Questions(question varchar(100), answer varchar(100), id int, foreign key (id) references Users (id));
-CREATE TABLE Auto_Bids(id int, i_id int, prev_price float, amount float, increment float, foreign key (id) references Users (id),foreign key (i_id) references Items (i_id));
-CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_decription varchar(25), foreign key (id) references users (id), primary key (alert_id));
+CREATE TABLE Auto_Bids(ab_id int AUTO_INCREMENT,id int, i_id int, prev_price float, amount float, increment float, foreign key (id) references Users (id),foreign key (i_id) references Items (i_id),primary key(ab_id));
+CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_description varchar(25), foreign key (id) references users (id), primary key (alert_id));
+CREATE TABLE Admin(aid int AUTO_INCREMENT, username varchar(25), password varchar(25), PRIMARY KEY (aid));
+CREATE TABLE Customer_Reps(cr_id int AUTO_INCREMENT, username varchar(25), aid int, password varchar(25),foreign key (aid) references Admin (aid), primary key (cr_id));
 
-INSERT INTO users (username, password) VALUES ('admin', 'pass');
+INSERT INTO Admin(username, password) VALUES ('admin', 'adminpassword');
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
 INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
 INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
