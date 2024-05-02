@@ -94,7 +94,7 @@
 		<td><%=result2.getString(1) %></td>
 		<td><%=result2.getString(2) %></td>
 		<td><%=result2.getString(3) %></td>
-		<td> <button name = "i_id" type = "submit" value= "<%=result2.getString(1)%>" >Delete</button></td>
+		<td> <button name = "delete_user" type = "submit" value= "<%=result2.getString(1)%>" >Delete</button></td>
 
 	<%}%>
 	</table>
@@ -103,6 +103,9 @@
 <br>
 		<form method="get" action="crModifyUser.jsp">
 			<table align = "center">
+			<tr>    
+					<td>Enter Users ID To Be Modified</td><td><input type="text"  name="mod_id"></td>
+				</tr>
 				<tr>    
 					<td>Modify Username</td><td><input type="text"  name="mod_username"></td>
 				</tr>
@@ -143,7 +146,7 @@
 		<td><%=result4.getString(8) %></td>
 		<td><%=result4.getString(9) %></td>
 		<td><%=result4.getString(10) %></td>
-		<td> <button name = "i_id" type = "submit" value= "<%=result4.getString(1)%>" >Delete</button></td>
+		<td> <button name = "delete_item" type = "submit" value= "<%=result4.getString(1)%>" >Delete</button></td>
 
 	<%}%>
 	</table>
@@ -155,10 +158,10 @@
 	<tr>
 	<th>Bid ID</th>
 	<th>Buyer ID</th>
-	<th>Seller ID</th>
+	<th>Item ID</th>
 	<th>Bid Amount Placed</th>
 	<th> Time Of Bid</th>
-	<th> Delete User</th>
+	<th> Delete Bid</th>
 	
 	</tr>
 	<% while(result3.next()){
@@ -169,7 +172,7 @@
 		<td><%=result3.getString(5) %></td>
 		<td><%=result3.getString(2) %></td>
 		<td><%=result3.getString(3) %></td>
-		<td> <button name = "i_id" type = "submit" value= "<%=result3.getString(1)%>" >Delete</button></td>
+		<td> <button name = "delete_bid" type = "submit" value= "<%=result3.getString(1)%>" >Delete</button></td>
 
 	<%}%>
 	</table>
