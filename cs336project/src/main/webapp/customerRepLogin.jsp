@@ -9,7 +9,7 @@
 <body>
 <h1 align = 'center'>Customer Rep Login</h1>
 	<br>
-		<form method="get" action="user_pass_lookup.jsp">
+		<form method="get" action="crLookup.jsp">
 			<table align = 'center'>
 				<tr>    
 					<td>Username</td><td><input type="text" name="user"></td>

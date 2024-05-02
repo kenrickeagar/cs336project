@@ -23,7 +23,7 @@
 			String password = request.getParameter("pass");
 		
 			
-            String query = "SELECT * FROM Admin WHERE username = ? AND password = ?";
+            String query = "SELECT * FROM Customer_Reps WHERE username = ? AND password = ?";
             PreparedStatement pstmt = con.prepareStatement(query);
             pstmt.setString(1, request.getParameter("user"));
             pstmt.setString(2, request.getParameter("pass"));
