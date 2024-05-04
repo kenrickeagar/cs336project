@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Administrator Home</title>
 </head>
 <body>
 <a href="adminLogin.jsp">LogOut </a>
@@ -61,9 +61,38 @@
 		<%if(isCreated){ %>
 		<p align = 'center'>Customer Rep Successfully Created!</p>
 		<%} %>
-	<br>
-	<h1 align = 'center'>Generate Sales</h1>
-	
+<br>
+<h1 align = 'center'>Generate Sales</h1>
+<br>
+		<form method="post" action="generateReport.jsp">
+		<center><input type="submit" value="Total Earnings"></center>
+		</form>
+<br>
+<br>
+		<form method="post" action="generateReportItem.jsp">
+		<center><input type="submit" value="Earnings per Item"></center>
+		</form>
+<br>
+<br>
+		<form method="post" action="generateReportItemType.jsp">
+		<center><input type="submit" value="Earnings per Item Type"></center>
+		</form>
+<br>
+<br>
+		<form method="post" action="generateReportEndUser.jsp">
+		<center><input type="submit" value="Earnings per End User"></center>
+		</form>
+<br>
+<br>
+		<form method="post" action="generateReportSellingItem.jsp">
+		<center><input type="submit" value="Best Selling Items"></center>
+		</form>
+<br>
+<br>
+		<form method="post" action="generateReportBuyer.jsp">
+		<center><input type="submit" value="Best Buyers"></center>
+		</form>
+<br>
 	<%
 			con.close();
 			//close the connection.
