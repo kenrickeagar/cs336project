@@ -11,6 +11,7 @@ CREATE TABLE Auto_Bids(ab_id int AUTO_INCREMENT,id int, i_id int, prev_price flo
 CREATE TABLE Item_Alert(alert_id int AUTO_INCREMENT, id int, item_description varchar(25), foreign key (id) references users (id) ON DELETE CASCADE ON UPDATE CASCADE, primary key (alert_id));
 CREATE TABLE Admin(aid int AUTO_INCREMENT, username varchar(25), password varchar(25), PRIMARY KEY (aid));
 CREATE TABLE Customer_Reps(cr_id int AUTO_INCREMENT, username varchar(25), aid int, password varchar(25),foreign key (aid) references Admin (aid), primary key (cr_id));
+CREATE TABLE Answer(cr_id int, qid int, foreign key (qid) references Questions, foreign key (cr_id) references Customer_Reps (cr_id));
 
 INSERT INTO Admin(username, password) VALUES ('admin', 'adminpassword');
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
