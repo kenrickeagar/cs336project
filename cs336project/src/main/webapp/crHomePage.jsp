@@ -131,7 +131,7 @@
 	<th> Closing Time</th>
 	<th> Seller ID</th>
 	<th> Winner ID</th>
-	<th> Delete User</th>
+	<th> Delete Item</th>
 	</tr>
 	<% while(result4.next()){
 		%>

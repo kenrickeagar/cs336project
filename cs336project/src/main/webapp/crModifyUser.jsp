@@ -50,7 +50,7 @@
 			
 			String delete_item = request.getParameter("delete_item");
 			if(delete_item != null && !delete_item.isBlank()){
-            String deleteItem_query = "DELETE FROM Users WHERE i_id = ?";
+            String deleteItem_query = "DELETE FROM Items WHERE i_id = ?";
             PreparedStatement deleteItem_pstmt = con.prepareStatement(deleteItem_query);
             deleteItem_pstmt.setString(1, delete_item);
             deleteItem_pstmt.executeUpdate();
@@ -61,7 +61,7 @@
 			if(delete_bid != null && !delete_bid.isBlank()){
             String deleteBid_query = "DELETE FROM Bids WHERE b_id = ?";
             PreparedStatement deleteBid_pstmt = con.prepareStatement(deleteBid_query);
-            deleteBid_pstmt.setString(1, delete_item);
+            deleteBid_pstmt.setString(1, delete_bid);
             deleteBid_pstmt.executeUpdate();
             response.sendRedirect("crHomePage.jsp");
 			}

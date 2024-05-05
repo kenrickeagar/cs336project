@@ -41,8 +41,8 @@
 			</tr>
 				<%while(result.next()){ %>
 					<tr>
-					<td><%=result.getString(1) %></td>
 					<td><%=result.getString(2) %></td>
+					<td><%=result.getString(3) %></td>
 			
 				<%} %>	
 				
