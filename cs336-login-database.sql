@@ -14,6 +14,7 @@ CREATE TABLE Customer_Reps(cr_id int AUTO_INCREMENT, username varchar(25), aid i
 CREATE TABLE Answer(cr_id int, qid int, foreign key (qid) references Questions (qid), foreign key (cr_id) references Customer_Reps (cr_id));
 
 INSERT INTO Admin(username, password) VALUES ('admin', 'adminpassword');
+INSERT INTO Customer_Reps(username, password, aid) VALUES ('customer', 'rep',1);
 INSERT INTO Users (username, password) VALUES ('zach', 'password123');
 INSERT INTO Users (username, password) VALUES ('jimmy', 'fallon');
 INSERT INTO Users (username, password) VALUES ('sponge', 'bob');
