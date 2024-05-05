@@ -38,10 +38,20 @@ INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, clos
 INSERT INTO Items (item_name, unit_price, description,cid, subcatAttribute, closing_date_time,seller_id,min_price) VALUES ('retro 5s', 70.00, 'creased','SHOES', '10', '2024-06-23 12:34:56',3,0);
 
 #Check Shirts and click black jersey to see bid table example
-INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 1, 14 ,NOW());
-INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 1,16 ,NOW());
-INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 1,17 ,NOW());
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 1, 14 ,'2024-03-23 9:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 1,16 ,'2024-03-23 10:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 1,17 ,'2024-03-23 11:34:56');
 UPDATE Items SET unit_price = 17 WHERE i_id = 1;
+
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 4, 14 ,'2024-03-23 12:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 4,13 ,'2024-03-23 12:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 4,19 ,'2024-03-23 12:34:56');
+UPDATE Items SET unit_price = 17 WHERE i_id = 4;
+
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (1, 5, 15 ,'2024-03-23 12:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (2, 5,17 ,'2024-03-23 12:34:56');
+INSERT INTO Bids(buyer_id, i_id, amount, time_of_bid) VALUES (3, 5,20 ,'2024-03-23 12:34:56');
+UPDATE Items SET unit_price = 17 WHERE i_id = 5;
 
 #Default filler questions
 INSERT INTO Questions(question,answer, id) VALUES ('How do I bid for Items?', 'Go to a selected item and click bid', 1);
